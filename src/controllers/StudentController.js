@@ -49,13 +49,16 @@ module.exports = {
            birth_date,
            courses: courseArray,
         })
+
+      courseExists.students = courseExists.students.concat(student._id);
+
     }else{
       return response.json({
          message:"Aluno já cadastrado."
       })
     }
 
-    return response.json(student);
+    return response.json({student,courseExists});
  },
 
  async update(request, response){
