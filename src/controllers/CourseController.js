@@ -1,4 +1,5 @@
 const Course = require('../models/Course');
+const mongoose = require('mongoose');
 const parseStringAsArray = require('../utils/parseStringAsArray');
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
  },  
     
  async register(request, response) {
-    const { name } = request.body;
+    const { name, students } = request.body;
     
     let course = await Course.findOne({ name });
 
@@ -18,6 +19,7 @@ module.exports = {
 
         course = await Course.create({
            name,
+           students: mongoose.Schema.ObjectID
         })
     }
 

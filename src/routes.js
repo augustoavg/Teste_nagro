@@ -2,7 +2,9 @@ const { Router } = require('express');
 
 const StudentController = require('./controllers/StudentController');
 const CourseController = require('./controllers/CourseController');
+const StudentCourseController = require('./controllers/StudentCourseController');
 const SearchController = require('./controllers/SearchController');
+
 const routes = Router();
 
 
