@@ -7,7 +7,7 @@ module.exports = {
  async list(request, response){
     const courses = await Course.find();
 
-    return response.json(courses);
+    return response.status(200).json(courses);
  },  
     
  async register(request, response) {
@@ -23,6 +23,6 @@ module.exports = {
         })
     }
 
-    return response.json(course);
+    return response.status(200).json(course);
  }
 };

@@ -7,16 +7,16 @@ const SearchController = require('./controllers/SearchController');
 const routes = Router();
 
 
-routes.post('/students', StudentController.register);
-routes.post('/courses', CourseController.register);
+routes.post('/students', StudentController.register); //ok
+routes.post('/courses', CourseController.register); //ok
 
-routes.delete('/students', StudentController.delete);
+routes.delete('/students', StudentController.delete); //ok
 
-routes.put('/students', StudentController.update);
+routes.put('/students', StudentController.update); //ok
 
-routes.get('/courses', CourseController.list);
-routes.get('/students', StudentController.list);
-routes.get('/search', SearchController.index);
+routes.get('/courses', CourseController.list); //ok
+routes.get('/students', StudentController.list); //ok
+routes.get('/search', SearchController.index); //ok
 
 
 module.exports = routes;

@@ -15,6 +15,6 @@ module.exports = {
             },
         });
 
-        return response.json({ students });
+        return response.status(200).json({ students });
     }
 }
