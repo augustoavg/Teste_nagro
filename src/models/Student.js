@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const DevSchema = new mongoose.Schema({
     name: String,
     cpf: String,
-    birht_date: String,
+    birth_date: String,
     courses: [String],
 });
 

@@ -11,20 +11,21 @@ module.exports = {
 
  async delete(request, response){
    const { cpf } = request.query;
-   if(Student.findOne({cpf:cpf}))
-   Student.deleteOne({cpf: cpf}, (err) => {
-      if(err) return response.status(400).json({
+   
+   await Student.deleteOne({cpf : cpf}, (err, result) => {
+      
+      if(result.deletedCount == 0) return response.status(400).json({
          error: true,
-         message: "Aluno não foi apagado com sucesso"
+         message: "Aluno não registrado"
       });
-      console.log(response.status.console);
+
       return response.json({
          error: false,
          message: "Aluno apagado com sucesso"
       });
    });
-},
-    
+ },
+
  async register(request, response) {
     const { name, cpf, birth_date, courses} = request.body;
     
@@ -43,5 +44,25 @@ module.exports = {
     }
 
     return response.json(student);
+ },
+
+ async update(request, response){
+   const { name, cpf, birth_date, courses} = request.body;
+
+   Student.updateOne(
+      { "cpf": cpf},
+      { "birth_date": birth_date, "name": name}
+  )
+  .then((obj) => {
+      console.log('Updated');
+      return response.json({
+         message: "Alteração realizada com sucesso"
+      });
+  })
+  .catch((err) => {
+   return response.json({
+      message: "Alteração não realizada" + err
+   });
+  })
  }
 };
