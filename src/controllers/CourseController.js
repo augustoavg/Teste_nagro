@@ -19,8 +19,9 @@ module.exports = {
 
         course = await Course.create({
            name,
-           students: mongoose.Schema.ObjectID
+           students: students
         })
+        console.log(students);
     }
 
     return response.json(course);

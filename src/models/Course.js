@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema, model, Document } = require('mongoose');
+
 const DevSchema = new mongoose.Schema({
     name: {
         type: String,
