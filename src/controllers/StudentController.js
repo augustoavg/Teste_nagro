@@ -12,6 +12,13 @@ module.exports = {
 
  async delete(request, response){
    const { cpf } = request.query;
+
+   const studentBio = await Student.findOne({cpf});
+   console.log(studentBio.courses);
+   const studentCourse = await Course.findById(studentBio.courses);
+   console.log(studentCourse);
+
+   await Course.updateOne({ "name": studentCourse.name }, {"students": studentCourse.students.splice(studentBio._id)});
    
    await Student.deleteOne({cpf : cpf}, (err, result) => {
       
@@ -50,7 +57,7 @@ module.exports = {
            courses: courseArray,
         })
 
-      courseExists.students = courseExists.students.concat(student._id);
+      await Course.updateOne({ "name": courseExists.name }, {"students": courseExists.students.concat(student._id)});
 
     }else{
       return response.json({

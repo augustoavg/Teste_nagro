@@ -21,7 +21,6 @@ module.exports = {
            name,
            students: students
         })
-        console.log(students);
     }
 
     return response.json(course);
