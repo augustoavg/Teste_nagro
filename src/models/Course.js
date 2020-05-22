@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DevSchema = new mongoose.Schema({
+const CourseSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -8,4 +8,4 @@ const DevSchema = new mongoose.Schema({
     students:  [ {type : mongoose.Schema.Types.ObjectId, ref : 'Student'} ],
 });
 
-module.exports = mongoose.model('Course', DevSchema);
+module.exports = mongoose.model('Course', CourseSchema);
