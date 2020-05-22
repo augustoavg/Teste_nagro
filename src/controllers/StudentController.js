@@ -1,4 +1,5 @@
 const Student = require('../models/Student');
+const Course = require('../models/Course');
 const parseStringAsArray = require('../utils/parseStringAsArray');
 
 module.exports = {
@@ -30,6 +31,13 @@ module.exports = {
     const { name, cpf, birth_date, courses} = request.body;
     
     let student = await Student.findOne({ cpf });
+    let courseExists = await Course.findById(courses);
+
+    if(!courseExists){
+       return response.json({
+          message:"Curso inexistente."
+       })
+    }
 
     if(!student){
 
@@ -41,6 +49,10 @@ module.exports = {
            birth_date,
            courses: courseArray,
         })
+    }else{
+      return response.json({
+         message:"Aluno já cadastrado."
+      })
     }
 
     return response.json(student);
