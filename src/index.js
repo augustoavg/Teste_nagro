@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:3vounptod@cluster0-1y2e0.mongodb.net/week10?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://testeNagro:testeNagro@mateusfcc-x5rzm.mongodb.net/testeNagro?retryWrites=true&w=majority', {
    useNewUrlParser: true,
     useUnifiedTopology: true,
 });
