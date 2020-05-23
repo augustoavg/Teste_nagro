@@ -14,7 +14,7 @@ A API será capaz de:
 
 A API possui duas tabelas: Courses e Students. Para manipulação dos seus dados foi utilizado o Insomnia da seguinte maneira para cada item:
 
-1) e 2. Registro do Aluno e vinculação a um curso
+- 1 e 2: Registro do Aluno e vinculação a um curso
 
 Chamada POST realizada utilizando body pelo endereço http://localhost:3333/students utilizando um _id de um curso ja existente.
 
@@ -26,11 +26,11 @@ Exemplo:<br>
 	"courses": "5ec82a7c81de6c4ef0697019"<br>
 }
 
-3) Listar todos os cursos disponíveis<br>
+- 3: Listar todos os cursos disponíveis<br>
 
 Basta realizar uma chamada GET pelo endereço http://localhost:3333/courses
 
-4) Filtrar os cursos disponíveis<br>
+- 4: Filtrar os cursos disponíveis<br>
 
 Basta realizar uma chamada GET pelo endereço http://localhost:3333/search e utilizando uma query com o id correspondente ao curso.
 
@@ -38,7 +38,7 @@ Exemplo:<br>
 name: courses<br>
 value: 5ec82a7c81de6c4ef0697019
 
-5) Exclusão de um aluno.<br>
+- 5: Exclusão de um aluno.<br>
 
 Basta realizar uma chamada DELETE pelo endereço http://localhost:3333/students e utilizando uma query com o cpf correspondente ao aluno.
 
@@ -46,7 +46,7 @@ Exemplo:<br>
 name: tax_id<br>
 value: 101010101010
 
-6) Edição das informações do aluno<br>
+- 6: Edição das informações do aluno<br>
 
 Basta realizar uma chamada PUT utilizando o body pelo endereço http://localhost:3333/students
 
